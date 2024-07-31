@@ -1,0 +1,65 @@
+.progress_wrapper {
+    position: relative;
+    height: 100px;
+    margin: 15px 0;
+  }
+  
+  .circle-bacground {
+    fill: none;
+    cursor: pointer;
+    user-select: none;
+    stroke: #830000;
+  }
+  
+  .circle-progress {
+    cursor: pointer;
+    fill: none;
+    user-select: none;
+    stroke: #5f5f5f82;
+  }
+  
+  .svg_progress {
+    user-select: none;
+    z-index: 5;
+  }
+  
+  .time_song {
+    position: absolute;
+    left: 20px;
+    top: 100px;
+    display: flex;
+    color: #000b72;
+    z-index: 1;
+    cursor: default;
+    user-select: none;
+  }
+  
+  .time {
+    width: 34px;
+  }
+  
+  .gif_container {
+    position: relative;
+    left: 13px;
+    bottom: 92px;
+    z-index: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  
+  .vinil-play {
+    background-size: cover;
+    width: 75px;
+    border-radius: 50%;
+    height: 75px;
+  }
+  
+  .vinil-stop {
+    background-size: cover;
+    width: 75px;
+    border-radius: 50%;
+    height: 75px;
+  }

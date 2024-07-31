@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Root Config</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/regenerator-runtime@0.13.7/runtime.min.js"></script>
+
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self' http: localhost:*; script-src 'unsafe-inline' 'unsafe-eval' http: localhost:*; connect-src http: localhost:* ws://localhost:*; style-src 'unsafe-inline' http:; object-src 'none';"
+    /> -->
+    <meta name="importmap-type" content="systemjs-importmap" />
+
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "single-spa": "https://cdnjs.cloudflare.com/ajax/libs/single-spa/6.0.1/es5/system/single-spa.min.js",
+          "react": "https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js",
+          "react-dom": "https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"
+        }
+      }
+    </script>
+
+    <% if (isLocal) { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@dubass/root-config": "//localhost:9000/dubass-root-config.js",
+          "@dubass/nav-bar": "//localhost:9001/dubass-nav-bar.js",
+          "@dubass/page1": "//localhost:9002/dubass-page1.js",
+          "@dubass/page2": "//localhost:9003/dubass-page2.js",
+          "@dubass/player": "//localhost:9004/dubass-player.js"
+        }
+      }
+    </script>
+    <% } %> <% if (isLocal) { %>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
+    <% } else { %>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
+    <% } %>
+
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100%;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+      }
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <main></main>
+    <script>
+      System.import("@dubass/root-config");
+    </script>
+    <import-map-overrides-full
+      show-when-local-storage="devtools"
+      dev-libs
+    ></import-map-overrides-full>
+
+    <div id="navbar"></div>
+    <main>
+      <div id="player" style='position: relative; top: 100px;'></div>
+      <div id="page1"></div>
+      <div id="page2"></div>
+    </main>
+  </body>
+</html>
