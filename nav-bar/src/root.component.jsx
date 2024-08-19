@@ -15,6 +15,8 @@ export default function Root(props) {
           </Link>
         </nav>
       </BrowserRouter>
+      <div>by</div>
+      <div>goodby</div>
     </div>
   );
 }
